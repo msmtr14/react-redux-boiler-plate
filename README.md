@@ -1,10 +1,10 @@
-# react-redux-starter-kit
+# react-redux-boiler-plate
 Modular starter kit for React+Redux+React Router projects.
 
 * [NPM scripts](#NPM-scripts)
 * [Features](#Features)
-* [Тестирование](#Тестирование)
-* [Документация](./docs/ru/main.md)
+* [Testing](#Testing)
+* [Documentation](./docs/ru/main.md)
 
 ## NPM scripts
 ### To start localy
@@ -49,21 +49,22 @@ Modular starter kit for React+Redux+React Router projects.
 - [x] Material-UI
 
 
-## Тестирование
+## Testing
 
-Тесты используют фреймворк [Jest](http://facebook.github.io/jest/)
+Tests use framework [Jest](http://facebook.github.io/jest/)
 
-### Запуск
+### Launch
 
-* `npm test` или `npm t` - разовый прогон тестов
-* `npm run test:watch` - запуск тестов в watch-режиме
-* `npm run test:debug` - запуск с возможностью подключения для отладки
+* `npm test` OR `npm t` - one-time test run
+* `npm run test:watch` - running tests in watch mode
+* `npm run test:debug` - run with connectivity for debugging
 (
   [Chrome](http://facebook.github.io/jest/docs/en/troubleshooting.html#content) /
   [VSCode](http://facebook.github.io/jest/docs/en/troubleshooting.html#debugging-in-vs-code) /
   [Webstorm](http://facebook.github.io/jest/docs/en/troubleshooting.html#debugging-in-webstorm)
 ).
-* `npm run test:coverage` - запуск с генерацией карты покрытия кода. Результаты можно открыть в браузере `<projectDir>/coverage/lcov-report/index.html`.
+* `npm run test:coverage` - launch with code card generation Results can be opened in a browser.
+`<projectDir>/coverage/lcov-report/index.html`.
 
 ### [Snapshot Testing](http://facebook.github.io/jest/docs/en/snapshot-testing.html#content)
 
@@ -79,20 +80,20 @@ it('renders correctly', () => {
 });
 ```
 
-После первого запуска теста создается эталонный снепшот, который будет помещен в папку `__snapshots__` рядом с файлом
-теста. Его нужно проверить на корректность. После изменений в верстке компонента в терминале будут отображены изменения
-произошедшие в компоненте, и если эти изменения ожидаемы, то нужно зафиксировать новые снепшоты, для этого достаточно
-в терминале нажать клавишу `"u"` (при условии что тесты запущены в watch-режиме). `ВНИМАНИЕ!!! Будут перезаписаны все снепшоты,
-не совпадающие с эталонными!`
+After the first run of the test, a reference snapshot is created, which will be placed in the `__snapshots__` folder next to the file
+test. It needs to be checked for correctness. After changes in the layout of the component, changes will be displayed in the terminal.
+occurred in the component, and if these changes are expected, then new snapshots need to be fixed, for that it’s enough
+in the terminal, press the `" u "` key (provided that the tests are run in watch mode). `WARNING !!! All snapshots will be overwritten,
+not coinciding with the reference! `
 
-> Чтобы обновить снепшот для конкретного теста можно воспользоваться [it.only(name, fn, timeout)](http://facebook.github.io/jest/docs/en/api.html#testonlyname-fn-timeout) или [describe.only(name, fn)](http://facebook.github.io/jest/docs/en/api.html#describeonlyname-fn), если мы хотим обновить снепшоты для группы тестов.
+> You can use [it.only (name, fn, timeout)] (http://facebook.github.io/jest/docs/en/api.html#testonlyname-fn-timeout) or [describe .only (name, fn)] (http://facebook.github.io/jest/docs/en/api.html#describeonlyname-fn) if we want to update snapshots for the test group.
 
-При возникновении ошибок при тестировании в watch моде:
+If errors occur during testing in watch mode:
 
-Для MacOS (`Error: watch EMFILE`): Удалить watchman, глобально установленный через npm или yarn, если таковой был, и установить повторно через brew.
+For MacOS (`Error: watch EMFILE`): Delete the watchman globally installed via npm or yarn, if any, and reinstall via brew.
 
-Для Linux (`Error ENOSPC`): воспользоваться данной командой:
+For Linux (`Error ENOSPC`): use this command:
 ```
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ``` 
-[ссылка на issue](https://github.com/facebook/jest/issues/3254)
+[reference to issue](https://github.com/facebook/jest/issues/3254)
