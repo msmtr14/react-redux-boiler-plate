@@ -29,7 +29,7 @@ class Header extends React.PureComponent<IProps & StylesProps> {
       <AppBar position="static">
         <Toolbar>
           <TypographyLink className={classes.link} to={brandRedirectPath} variant="display1" color="inherit">
-            FSD Starter kit
+            React-Redux Boiler Plate
           </TypographyLink>
           <div className={classes.content}>{children}</div>
           {Object.keys(menuRedirectPaths).map((key: LinkName) => (

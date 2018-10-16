@@ -17,10 +17,10 @@ class Footer extends React.PureComponent<StylesProps> {
             className={classes.link}
             variant="subheading"
             color="primary"
-            href="http://fullstack-development.com/"
+            href="https://fb.com/mohitsinghmlp"
             target="_blank"
           >
-            FullStackDevelopment
+            Developed By Mohit Singh Baghel
           </TypographyLink>
         </Toolbar>
       </AppBar>

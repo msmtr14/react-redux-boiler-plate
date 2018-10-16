@@ -38,6 +38,7 @@ function configureApp(data?: IAppData): IAppData {
   modules.forEach((module: Module) => {
     if (module.getReduxEntry) {
       connectEntryToStore(module.getReduxEntry());
+      console.log("connectEntryToStore() called... in core/configureApp.ts");
     }
   });
 
