@@ -9,6 +9,7 @@ const TypographyLink = withComponent('a')(Typography);
 class Footer extends React.PureComponent<StylesProps> {
   public render() {
     const { classes } = this.props;
+    const userProfileLink = "https://www.linkedin.com/in/mohit-singh-baghel-89695b119";
 
     return (
       <AppBar position="static" color="default">
@@ -17,7 +18,7 @@ class Footer extends React.PureComponent<StylesProps> {
             className={classes.link}
             variant="subheading"
             color="primary"
-            href="https://fb.com/mohitsinghmlp"
+            href={userProfileLink}
             target="_blank"
           >
             Developed By Mohit Singh Baghel
