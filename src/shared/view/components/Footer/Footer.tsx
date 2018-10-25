@@ -9,7 +9,7 @@ const TypographyLink = withComponent('a')(Typography);
 class Footer extends React.PureComponent<StylesProps> {
   public render() {
     const { classes } = this.props;
-    const userProfileLink = "https://www.linkedin.com/in/mohit-singh-baghel-89695b119";
+    const userProfileLink = `https://www.linkedin.com/in/mohit-singh-baghel-89695b119`;
 
     return (
       <AppBar position="static" color="default">
