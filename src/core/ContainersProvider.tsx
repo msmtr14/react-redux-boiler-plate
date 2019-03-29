@@ -1,15 +1,15 @@
-import * as React from 'react';
+import React from 'react';
 import { bind } from 'decko';
+import { Omit } from '_helpers';
 
+import * as usersSearchFeature from 'features/usersSearch';
 import { injectable } from 'inversify';
 import { inject, TYPES } from './configureIoc';
 
-import { IFeatureEntry, Omit } from 'shared/types/app';
-
-import * as categorySelectFeature from 'features/categorySelect';
+import { IFeatureEntry } from 'shared/types/app';
 
 interface IContainerTypes {
-  CategorySelect: categorySelectFeature.Entry['containers']['CategorySelect'];
+  UserDetails: usersSearchFeature.Entry['containers']['UserDetails'];
 }
 
 type Container = keyof IContainerTypes;
@@ -29,7 +29,7 @@ type GenericLoadersMap = {
 };
 
 const containerLoadersDictionary: LoadersMap = {
-  CategorySelect: categorySelectFeature.loadEntry,
+  UserDetails: usersSearchFeature.loadEntry,
 };
 
 interface IState {
@@ -38,16 +38,16 @@ interface IState {
   };
 }
 
+// tslint:disable:max-line-length
 function containersProvider<L extends Container>(containers: L[], preloader?: React.ReactChild):
-  // tslint:disable-next-line:max-line-length
   <Props extends { [K in L]: IContainerTypes[K] }>(WrappedComponent: React.ComponentType<Props>) => React.ComponentClass<Omit<Props, L>> {
 
   return <Props extends { [K in L]: IContainerTypes[K] }>(
     WrappedComponent: React.ComponentType<Props>,
-  ): React.ComponentClass<Omit<Props, L>> => {
+  ): React.ComponentClass<Props> => {
 
     @injectable()
-    class ContainersProvider extends React.PureComponent<Omit<Props, L>, IState> {
+    class ContainersProvider extends React.PureComponent<Props, IState> {
       public state: IState = { containers: {} };
 
       @inject(TYPES.connectEntryToStore)
@@ -60,11 +60,13 @@ function containersProvider<L extends Container>(containers: L[], preloader?: Re
       public componentWillUnmount() {
         this.saveContainerToState = null;
       }
-
+      // TODO: УДОЛИ
       public render() {
-        return typeof preloader !== 'undefined' && !this.isAllContainersLoaded()
-          ? preloader
-          : <WrappedComponent {...this.state.containers} {...this.props} />;
+        if (!this.isAllContainersLoaded()) {
+          return preloader !== void 0 ? preloader : null;
+        } else {
+          return <WrappedComponent {...this.state.containers} {...this.props} />;
+        }
       }
 
       @bind

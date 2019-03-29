@@ -1,14 +1,14 @@
 import 'reflect-metadata';
 import 'babel-polyfill';
 import { App } from 'core/App';
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import bootstrapper from 'react-async-bootstrapper';
 import configureApp from 'core/configureApp';
 
-import { AppContainer } from 'react-hot-loader';
+import getEnvParams from './core/getEnvParams';
 
-const version: string = '0.0.3';
+const { appVersion } = getEnvParams();
 
 const appData = configureApp();
 
@@ -35,7 +35,7 @@ if ((module as any).hot && process.env.NODE_ENV !== 'production') {
 
 function render(component: React.ReactElement<any>) {
   ReactDOM.hydrate(
-    <AppContainer>{component}</AppContainer>,
+    component,
     document.getElementById('root'),
     () => {
       // We don't need the static css any more once we have launched our application.
@@ -48,5 +48,5 @@ function render(component: React.ReactElement<any>) {
 }
 
 /* tslint:disable */
-console.info(`%cApp version: ${version}`, 'background: #EBF5F8; color: gray; font-size: x-medium; border-radius: 5px; padding: 5px;');
+console.info(`%cApp version: ${appVersion}`, 'background: #EBF5F8; color: gray; font-size: x-medium; border-radius: 5px; padding: 5px;');
 /* tslint:enable */

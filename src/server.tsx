@@ -1,15 +1,15 @@
 import 'reflect-metadata';
-import * as express from 'express';
-import * as React from 'react';
+import express from 'express';
+import React from 'react';
 import bootstrapper from 'react-async-bootstrapper';
 import { renderToString } from 'react-dom/server';
 
 import { IAssets, IAppData } from 'shared/types/app';
+import { SheetsRegistry } from 'shared/styles';
 import Html from 'assets/Html';
 
 import configureApp from 'core/configureApp';
 import { ServerApp } from 'core/App';
-import { SheetsRegistry } from 'react-jss';
 
 async function render({ req, res, assets }: { req: express.Request; res: express.Response; assets: IAssets }) {
   try {

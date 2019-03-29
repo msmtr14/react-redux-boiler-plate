@@ -1,22 +1,26 @@
 import configureDeps from './configureDeps';
 import { TYPES, container } from './configureIoc';
 import configureStore, { createReducer } from './configureStore';
+
+import * as allModules from 'modules';
 import { configureJss } from 'core/configureJss';
-
-import { HomeModule, OrderFormModule } from 'modules';
-
 import { ReducersMap } from 'shared/types/redux';
-import { IAppData, Module, RootSaga, IAppReduxState, IReduxEntry } from 'shared/types/app';
+import { reduxEntry as themeProviderRE } from 'services/theme';
+import { reduxEntry as notificationReduxEntry } from 'services/notification';
+import { IAppData, IModule, RootSaga, IAppReduxState, IReduxEntry } from 'shared/types/app';
 
 function configureApp(data?: IAppData): IAppData {
   /* Prepare main app elements */
-  const modules: Module[] = [new HomeModule(), new OrderFormModule()];
+  const modules: IModule[] =  Object.values(allModules);
 
   if (data) {
     return { ...data, modules };
   }
 
-  const sharedReduxEntries: IReduxEntry[] = [];
+  const sharedReduxEntries: IReduxEntry[] = [
+    themeProviderRE,
+    notificationReduxEntry,
+  ];
 
   const connectedSagas: RootSaga[] = [];
   const connectedReducers: ReducersMap<Partial<IAppReduxState>> = {};
@@ -35,10 +39,9 @@ function configureApp(data?: IAppData): IAppData {
   const jssDeps = configureJss();
 
   sharedReduxEntries.forEach(connectEntryToStore);
-  modules.forEach((module: Module) => {
+  modules.forEach((module: IModule) => {
     if (module.getReduxEntry) {
       connectEntryToStore(module.getReduxEntry());
-      console.log("connectEntryToStore() called... in core/configureApp.ts");
     }
   });
 

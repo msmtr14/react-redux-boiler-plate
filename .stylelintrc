@@ -6,6 +6,10 @@
     "stylelint-order",
     "stylelint-scss"
   ],
+  "ignoreFiles": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
   "rules": {
     "scss/dollar-variable-empty-line-before": [
       "always",
@@ -31,6 +35,10 @@
       {
         "type": "at-rule",
         "name": "media",
+      },
+      {
+        "type": "at-rule",
+        "name": "include",
       },
       "rules",
     ],
@@ -259,5 +267,7 @@
         "unspecified": "bottom",
       },
     ],
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
   }
 }

@@ -1,4 +1,7 @@
-import { ROUTES_PREFIX } from 'core/constants';
+import { routes as searchRoutes } from './Search/routes';
+import { routes as profileRoutes } from './Profile/routes';
 
-export const homeRedirectPath = `${ROUTES_PREFIX}/home`;
-export const orderRedirectPath = `${ROUTES_PREFIX}/order`;
+export default {
+  ...searchRoutes,
+  ...profileRoutes,
+};

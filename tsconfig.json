@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "typeRoots": ["./node_modules/@types", "./@types"],
-    "traceResolution": true,
+    "traceResolution": false,
     "strictNullChecks": true,
     "noImplicitAny": true,
     "module": "esnext",
-    "target": "es6",
+    "target": "es5",
     "lib": [
       "es2015",
       "es2017",
@@ -20,11 +20,15 @@
     "moduleResolution": "node",
     "baseUrl": "./src",
     "noUnusedLocals": true,
-    "noUnusedParameters": false,
-    "allowSyntheticDefaultImports": false,
+    "noUnusedParameters": true,
+    "allowSyntheticDefaultImports": true,
     "importHelpers": true,
     "strictPropertyInitialization": true,
-    "strictFunctionTypes": false
+    "strictFunctionTypes": false,
+    "strictBindCallApply": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
   "include": [
     "src/**/*",

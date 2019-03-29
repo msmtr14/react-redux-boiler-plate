@@ -3,6 +3,11 @@
     "./node_modules/tslint-react/tslint-react.json",
     "tslint:latest"
   ],
+  "linterOptions": {
+    "exclude": [
+        "*.json"
+    ]
+  },
   "rulesDirectory": "./node_modules/tslint-eslint-rules/dist/rules",
   "jsRules": {
     "indent": [true, "spaces", 2],
@@ -47,6 +52,7 @@
     ]
   },
   "rules": {
+    "import-blacklist": [true, "react-jss", "@material-ui/core", "@material-ui/icons"],
     "object-literal-key-quotes": false,
     "no-unused-expression": [true, "allow-fast-null-checks"],
     "no-implicit-dependencies": false,
