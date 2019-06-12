@@ -144,7 +144,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fullstack-development/react-redux-boiler-plate.git"
+    "url": "git+https://github.com/msmtr14/react-redux-boiler-plate.git"
   },
   "keywords": [
     "starter-kit",
@@ -154,9 +154,9 @@
   "author": "Fullstack-development",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fullstack-development/react-redux-boiler-plate/issues"
+    "url": "https://github.com/msmtr14/react-redux-boiler-plate/issues"
   },
-  "homepage": "https://github.com/fullstack-development/react-redux-boiler-plate#readme",
+  "homepage": "https://github.com/msmtr14/react-redux-boiler-plate#readme",
   "devDependencies": {
     "@types/clean-webpack-plugin": "^0.1.2",
     "@types/enzyme": "^3.1.10",
@@ -195,13 +195,13 @@
     "tslint-loader": "^3.5.4",
     "tslint-react": "^3.6.0",
     "webpack": "^4.26.1",
-    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.14",
+    "webpack-dev-server": "^3.7.1",
     "webpack-hot-middleware": "^2.24.3",
     "webpack-isomorphic-dev-middleware": "^4.1.0",
     "webpack-node-externals": "^1.7.2",
-    "yo": "^2.0.5"
+    "yo": "^2.0.6"
   },
   "dependencies": {
     "@material-ui/core": "^3.9.1",
@@ -227,7 +227,7 @@
     "@types/webpack-hot-middleware": "^2.16.2",
     "@types/webpack-node-externals": "^1.6.2",
     "autoprefixer": "^9.3.1",
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "babel-polyfill": "^6.26.0",
     "bem-cn": "^3.0.1",
     "better-npm-run": "^0.1.1",
@@ -251,7 +251,7 @@
     "jss": "^9.8.3",
     "jss-compose": "^5.0.0",
     "node-polyglot": "^2.3.0",
-    "node-sass": "^4.9.2",
+    "node-sass": "^4.12.0",
     "normalize.css": "^8.0.0",
     "normalizr": "^2.3.1",
     "postcss-easy-import": "^3.0.0",
